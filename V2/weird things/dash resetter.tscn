@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://gh0qbxturomn"]
+
+[ext_resource type="Script" uid="uid://cn2almycahy4a" path="res://weird things/dash resetter.gd" id="1_5sbl7"]
+[ext_resource type="Shader" uid="uid://cxdwnbpf33aew" path="res://shaders/dash resetter.gdshader" id="2_klbui"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5sbl7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_5sbl7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q5mn8"]
+shader = ExtResource("2_klbui")
+
+[node name="dash resetter" type="Area2D"]
+script = ExtResource("1_5sbl7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 0.785398
+shape = SubResource("CircleShape2D_5sbl7")
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Node2D2"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(20, 20)
+mesh = SubResource("SphereMesh_5sbl7")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Node2D2"]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(0, 4.94786e-06)
+scale = Vector2(16.0181, 16.0181)
+mesh = SubResource("SphereMesh_5sbl7")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="Node2D2"]
+modulate = Color(1, 0.957626, 0, 1)
+material = SubResource("ShaderMaterial_q5mn8")
+position = Vector2(0, 0.00510556)
+scale = Vector2(16.0181, 16.0181)
+mesh = SubResource("SphereMesh_5sbl7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxpm4kj7j1m4b"]
+
+[ext_resource type="Script" uid="uid://chx22worhpd65" path="res://weird things/teleport_box.gd" id="1_ueobx"]
+
+[node name="teleport box" type="Area2D"]
+script = ExtResource("1_ueobx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

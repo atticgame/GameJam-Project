@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://b76j01jieqnoq"]
+
+[ext_resource type="Script" uid="uid://bt12isnwukx21" path="res://enemy/enemy.gd" id="1_oul6g"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_rkbax"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_oul6g")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(20, 30)
+mesh = SubResource("QuadMesh_rkbax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_oul6g")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="dashbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dashbox"]
+shape = SubResource("CapsuleShape2D_rkbax")
+
+[node name="dash timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="coyote timer" type="Timer" parent="."]
+wait_time = 0.08
+one_shot = true
+
+[node name="jump buffering" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="dash timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="jump buffering" to="." method="_on_jump_buffering_timeout"]

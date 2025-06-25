@@ -1,0 +1,355 @@
+[gd_scene load_steps=20 format=3 uid="uid://bx7dmn6nehjad"]
+
+[ext_resource type="PackedScene" uid="uid://b76j01jieqnoq" path="res://enemy/enemy.tscn" id="1_5b0pp"]
+[ext_resource type="PackedScene" uid="uid://dxpm4kj7j1m4b" path="res://weird things/teleport box.tscn" id="2_wqrgi"]
+[ext_resource type="PackedScene" uid="uid://gh0qbxturomn" path="res://weird things/dash resetter.tscn" id="3_jwx8f"]
+[ext_resource type="PackedScene" uid="uid://cj6dfbwc0rfpj" path="res://weird things/level ender.tscn" id="4_0fvvq"]
+[ext_resource type="PackedScene" uid="uid://45umdvayn25e" path="res://levels/level 1.tscn" id="5_aaho8"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ok11k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkmgf"]
+size = Vector2(2196, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mquhk"]
+size = Vector2(228, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6evee"]
+size = Vector2(582, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ok11k"]
+size = Vector2(1678, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylqki"]
+size = Vector2(20, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8alf"]
+size = Vector2(763, 522)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqrgi"]
+size = Vector2(182, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwx8f"]
+size = Vector2(182, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5b0pp"]
+size = Vector2(182, 1151)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aux4v"]
+size = Vector2(359, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qec0h"]
+size = Vector2(50.5, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o26uq"]
+size = Vector2(677, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_waeec"]
+size = Vector2(999.5, 20)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="player" type="Sprite2D" parent="."]
+position = Vector2(5560, -32)
+scale = Vector2(0.0742188, 0.0742188)
+texture = SubResource("NoiseTexture2D_ok11k")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_5b0pp")]
+position = Vector2(-5, -69)
+world_bottom = 200.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(511, 0)
+shape = SubResource("RectangleShape2D_xkmgf")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = -587.0
+offset_top = -10.0
+offset_right = 1609.0
+offset_bottom = 11.0
+color = Color(0.158472, 0.158472, 0.158472, 1)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(2272, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-473, 0.5)
+shape = SubResource("RectangleShape2D_mquhk")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+offset_left = -587.0
+offset_top = -10.0
+offset_right = -359.0
+offset_bottom = 11.0
+color = Color(0.158472, 0.158472, 0.158472, 1)
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+position = Vector2(2640, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+position = Vector2(-296, 0.5)
+shape = SubResource("RectangleShape2D_6evee")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D7"]
+offset_left = -587.0
+offset_top = -10.0
+offset_right = -5.0
+offset_bottom = 11.0
+color = Color(0.158472, 0.158472, 0.158472, 1)
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+position = Vector2(3664, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
+position = Vector2(-296, 0.5)
+shape = SubResource("RectangleShape2D_6evee")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D9"]
+offset_left = -587.0
+offset_top = -10.0
+offset_right = -5.0
+offset_bottom = 11.0
+color = Color(0.158472, 0.158472, 0.158472, 1)
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+position = Vector2(5151, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
+position = Vector2(252, 0.5)
+shape = SubResource("RectangleShape2D_ok11k")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D10"]
+offset_left = -587.0
+offset_top = -10.0
+offset_right = 1088.0
+offset_bottom = 11.0
+color = Color(0.158472, 0.158472, 0.158472, 1)
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+position = Vector2(3432, -64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
+position = Vector2(0, -93)
+shape = SubResource("RectangleShape2D_ylqki")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D8"]
+offset_left = -10.0
+offset_top = -243.0
+offset_right = 10.0
+offset_bottom = 57.0
+color = Color(0.156863, 0.156863, 0.156863, 1)
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(2128, -52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2(-205.5, -250)
+shape = SubResource("RectangleShape2D_t8alf")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D6"]
+offset_left = -587.0
+offset_top = -511.0
+offset_right = 176.0
+offset_bottom = 11.0
+color = Color(0.158472, 0.158472, 0.158472, 1)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(608, -31)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_wqrgi")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3"]
+offset_left = -91.0
+offset_top = -23.0
+offset_right = 91.0
+offset_bottom = 21.0
+color = Color(0.158472, 0.158472, 0.158472, 1)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(1048, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(0, -54)
+shape = SubResource("RectangleShape2D_jwx8f")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D5"]
+offset_left = -91.0
+offset_top = -103.0
+offset_right = 91.0
+offset_bottom = -4.0
+color = Color(0.158472, 0.158472, 0.158472, 1)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(-360, -31)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(0, -555.5)
+shape = SubResource("RectangleShape2D_5b0pp")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D4"]
+offset_left = -91.0
+offset_top = -1109.0
+offset_right = 91.0
+offset_bottom = 21.0
+color = Color(0.158472, 0.158472, 0.158472, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -86.0
+offset_top = -128.0
+offset_right = 87.0
+offset_bottom = -105.0
+text = "use [←] and [→] to move"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 514.0
+offset_top = -128.0
+offset_right = 687.0
+offset_bottom = -105.0
+text = "press [z] to jump"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 960.0
+offset_top = -143.0
+offset_right = 1133.0
+offset_bottom = -120.0
+text = "hold [z] to jump higher"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 1569.0
+offset_top = -93.0
+offset_right = 1744.0
+offset_bottom = -70.0
+text = "press [x] to dash"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 1904.0
+offset_top = -93.0
+offset_right = 2079.0
+offset_bottom = -70.0
+text = "hold [x] to dash longer"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 3082.0
+offset_top = -132.0
+offset_right = 3408.0
+offset_bottom = -83.0
+text = "hold [↑] and hold [x] to dash upwards
+make sure not to press horizontal buttons"
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="."]
+offset_left = 3958.0
+offset_top = -96.0
+offset_right = 4284.0
+offset_bottom = -47.0
+text = "touch this thing to get another dash"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="."]
+offset_left = 2548.0
+offset_top = -133.0
+offset_right = 3027.0
+offset_bottom = -58.0
+text = "hold [↑] and [→] press [x] to dash diagonally
+it's only useful in the air since it goes about
+the same as jumping and moving"
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="."]
+offset_left = 2778.0
+offset_top = -15.0
+offset_right = 2913.0
+offset_bottom = 34.0
+text = "jump and
+do it around here"
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="."]
+offset_left = 5301.0
+offset_top = -77.0
+offset_right = 5784.0
+offset_bottom = -54.0
+text = "also there's this guy, try to catch him before he gets to the end"
+horizontal_alignment = 1
+
+[node name="Area2D" parent="." instance=ExtResource("2_wqrgi")]
+position = Vector2(1630, 57)
+pos = Vector2(1596, -37)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, 57)
+shape = SubResource("RectangleShape2D_aux4v")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-136, 10)
+shape = SubResource("RectangleShape2D_qec0h")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(180, 10)
+shape = SubResource("RectangleShape2D_qec0h")
+
+[node name="Area2D2" parent="." instance=ExtResource("2_wqrgi")]
+position = Vector2(1975, 57)
+pos = Vector2(1913, -25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(30.5, 57)
+shape = SubResource("RectangleShape2D_aux4v")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(186, 10)
+shape = SubResource("RectangleShape2D_qec0h")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-123, 10)
+shape = SubResource("RectangleShape2D_qec0h")
+
+[node name="Area2D3" parent="." instance=ExtResource("2_wqrgi")]
+position = Vector2(2671, 57)
+pos = Vector2(2602, -57)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(170, 57)
+shape = SubResource("RectangleShape2D_o26uq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(-143.25, 10)
+shape = SubResource("RectangleShape2D_qec0h")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(490, 10)
+shape = SubResource("RectangleShape2D_qec0h")
+
+[node name="Area2D4" parent="." instance=ExtResource("2_wqrgi")]
+position = Vector2(3775, 57)
+pos = Vector2(3629, -44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2(331.25, 57)
+shape = SubResource("RectangleShape2D_waeec")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2(-181, 10)
+shape = SubResource("RectangleShape2D_qec0h")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2(815, 10)
+shape = SubResource("RectangleShape2D_qec0h")
+
+[node name="dash resetter" parent="." instance=ExtResource("3_jwx8f")]
+position = Vector2(4155, -9)
+
+[node name="dash resetter2" parent="." instance=ExtResource("3_jwx8f")]
+position = Vector2(4442, -9)
+
+[node name="dash resetter3" parent="." instance=ExtResource("4_0fvvq")]
+position = Vector2(6177, -48)
+level = ExtResource("5_aaho8")
